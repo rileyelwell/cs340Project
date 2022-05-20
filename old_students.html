@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Website</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+    <main class="content">
+      <a href=https://web.engr.oregonstate.edu/~elwellr/CS340/index.html>Return to Home</a>
+      
+      <h1>Find a tutor that meets your needs</h1>
+      <p>Here you can search for tutors. A list of tutors will come up along with pertanent info for each. We encourage you to send an email to a tutor that you think may be a good fit in order to get the ball rolling!</p>
+
+      <aside class="filter-container">
+          <h2>Filters</h2>
+
+          <div class="filter-input-container">
+            <label for="filter-text" class="filter-input-label">College Affiliation</label>
+            <div class="filter-input-element">
+              <input type="text" name="filter-text" id="filter-text" class="filter-input">
+            </div>
+          </div>
+          
+          <div class="filter-input-container">
+            <label for="filter-text" class="filter-input-label">Course Expertise</label>
+            <div class="filter-input-element">
+              <input type="text" name="filter-text" id="filter-text" class="filter-input">
+            </div>
+          </div>
+
+          <div class="filter-input-container">
+            <label for="filter-min-price" class="filter-input-label">Hourly Rate</label>
+            <div class="filter-input-element">
+              <input type="text" name="filter-min-price" id="filter-min-price" class="filter-input" placeholder="min">
+            </div>
+            <div class="filter-input-element">
+              <input type="text" name="filter-max-price" id="filter-max-price" class="filter-input" placeholder="max">
+            </div>
+          </div>
+          
+          <div class="filter-input-container">
+            <label for="filter-min-price" class="filter-input-label">Age</label>
+            <div class="filter-input-element">
+              <input type="text" name="filter-age" id="filter-age" class="filter-input">
+            </div>
+          </div>
+          
+          <div class="filter-input-container">
+            <label for="filter-city" class="filter-input-label">Gender</label>
+            <div class="filter-input-element">
+              <select id="filter-city" class="filter-input" name="filter-city">
+                <option selected value="">Any</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          
+          <br>
+  
+          <button id="filter-update-button" class="action-button">Search</button>
+        </aside>
+
+    </main>
+    <script src="index.js"></script>
+  </body>
+</html>

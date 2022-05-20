@@ -1,0 +1,108 @@
+html, body {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+header {
+    background-color: black;
+}
+
+#navbar {
+    /*Aligns the rest of the nav-bar items to the right of the screen*/
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#navbar ul {
+    /*Removes bullet points from the list*/
+    display: flex;
+    list-style-type: none;
+
+    /*Removes default list padding/margins*/
+    margin: 0;
+    padding-right: 20px;
+
+    /*Styles the font of navbar items*/
+    font-size: 30px;
+    font-weight: 300;
+    color: #edede8;
+}
+
+#navbar li {
+    /*Adjusts the spacing between items in the navbar*/
+    margin: 0;
+    margin-left: 40px;
+
+    /*Padding between elements; Mostly for styling a "pill" upon hover*/
+    padding: 5px 15px;
+}
+
+#navbar li:hover {
+    /*Changes the color of navbar elements on hover*/
+    background-color: #4b4f40;
+
+    /*Creates a "pill" border around them*/
+    border-radius: 20px;
+
+    /*Styles the mouse to show interactivity w/these*/
+    cursor: pointer;
+}
+
+/*
+.filter-container {
+    display: inline-block;
+    margin-left: 10px;
+    margin-top: 10px;
+    width: 500px;
+    height: 500px;
+    background-color: #ececec;
+ }
+
+.filter-input-label {
+    display: inline-block;
+    padding: 0px 5px 25px 0px;
+}
+
+.filter-input-element {
+    display: inline-block;
+}
+
+#filter-text {
+    width: 150px;
+}
+
+#filter-min-price {
+    width: 65px;
+}
+
+#filter-max-price {
+    width: 65px;
+}
+
+#filter-city {
+    width: 160px;
+}
+
+.action-button {
+    border: 0px;
+    border-radius: 5px;
+    margin: 20px 0px;
+    display: inline-block;
+    background-color: black;
+    color: white;
+}
+
+.action-button:hover {
+    cursor: pointer;
+    background-color: burlywood;
+    color: black;
+    border: 1px solid black;
+}
+
+#filter-update-button {
+    font-weight: 200;
+    font-size: 25px;
+    padding: 10px 60px;
+}
+*/
