@@ -18,6 +18,9 @@ app.set('view engine', 'handlebars');
 app.set('port', process.argv[2]);
 app.set('mysql', mysql);
 
+app.use('/colleges', require('./colleges.js'));
+app.use('/delete', require('./delete.js'));
+
 app.get('/', function (req, res, next) {
   res.status(200).render('home', {}) 
 });
