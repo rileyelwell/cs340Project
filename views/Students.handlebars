@@ -1,0 +1,48 @@
+<html>
+  <main>
+
+    <h3>Add a new student:</h3>
+    <form id="addStudent" action="/Students" method="post">
+      First Name: <br><input type="text" name="firstName"><br>
+      Last Name: <br><input type="text" name="lastName"><br>
+      GPA: <br><input type="number" name="gpa"><br>
+      College: <br><input type="text" name="college"><br>
+      Email: <br><input type="text" name="email"><br>
+      Gender: <br><input type="text" name="gender"><br>
+      Year in School: <br><input type="number" name="yearInSchool" placeholder="24"><br>
+      Max Budget: <br><input type="number" name="tutoringBudget"><br>
+      Classes Needed Help In: <br><input type="text" name="classesHelpNeededIn"><br>
+      <input type="submit" value="Submit">
+    </form>
+    <br/>
+
+    <table class="styled-table">
+      <tr>
+        <th>First Name</th> 
+        <th>Last Name</th> 
+        <th>GPA</th>
+        <th>Email</th>
+        <th>College</th>
+        <th>Gender</th>
+        <th>Year in School</th>
+        <th>Budget</th>
+        <th>Classes Need Help In</th>
+      </tr>
+        {{#each Students}} 
+          <tr> 
+            <td>{{firstName}}</td> 
+            <td>{{lastName}}</td>
+            <td>{{gpa}}</td> 
+            <td>{{email}}</td> 
+            <td>{{college}}</td> 
+            <td>{{gender}}</td>  
+            <td>{{yearInSchool}}</td>
+            <td>{{tutoringBudget}}</td> 
+            <td>{{classesHelpNeededIn}}</td>
+            <td><button onclick="deleteStudent({{studentID}})">Delete</button></td>
+            <td><a href="/Students/{{studentID}}">Update</a></td>
+          </tr> 
+        {{/each}}  
+    </table>
+  </main>
+</html>

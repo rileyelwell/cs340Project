@@ -1,0 +1,17 @@
+<html>
+    <main>
+        <h1>Update {{Students.firstName}} {{Students.lastName}}:</h1>
+        <form id="update-student" action="/Students" method="post">
+            First name: <br><input type="text" name="firstName" value="{{Students.firstName}}"><br>
+            Last Name: <br><input type="text" name="lastName" value="{{Students.lastName}}"><br>
+            GPA: <br><input type="number" name="gpa" value="{{Students.gpa}}"><br>
+            College: <br><input type="text" name="college" value="{{Students.college}}"><br>
+            Email: <br><input type="text" name="email" value="{{Students.email}}"><br>
+            Gender: <br><input type="text" name="gender" value="{{Students.gender}}"><br>
+            Year in School: <br><input type="number" name="yearInSchool" value="{{Students.yearInSchool}}"><br>
+            Max Budget: <br><input type="number" name="tutoringBudget" value="{{Students.tutoringBudget}}"><br>
+            Classes Needed Help In: <br><input type="text" name="classesHelpNeededIn" value="{{Students.classesHelpNeededIn}}"><br>
+        </form>
+        <button onclick="updateStudent({{Students.studentID}})">Update</button>
+    </main>
+</html>

@@ -1,4 +1,8 @@
-html, body {
+body {
+    margin:0;
+    padding:0;
+    padding-top: 60px; 
+    padding-bottom: 30px;
     font-size: 16px;
     font-weight: 400;
 }
@@ -7,11 +11,17 @@ header {
     background-color: black;
 }
 
+/* NAVBAR STYLING */
+
 #navbar {
     /*Aligns the rest of the nav-bar items to the right of the screen*/
     flex-grow: 1;
     display: flex;
-    justify-content: flex-end;
+
+    position: fixed;
+    background-color: black;
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
 }
 
 #navbar ul {
@@ -21,7 +31,6 @@ header {
 
     /*Removes default list padding/margins*/
     margin: 0;
-    padding-right: 20px;
 
     /*Styles the font of navbar items*/
     font-size: 30px;
@@ -32,77 +41,127 @@ header {
 #navbar li {
     /*Adjusts the spacing between items in the navbar*/
     margin: 0;
-    margin-left: 40px;
-
-    /*Padding between elements; Mostly for styling a "pill" upon hover*/
-    padding: 5px 15px;
+    padding: 10px;
 }
 
 #navbar li:hover {
     /*Changes the color of navbar elements on hover*/
     background-color: #4b4f40;
 
-    /*Creates a "pill" border around them*/
-    border-radius: 20px;
-
     /*Styles the mouse to show interactivity w/these*/
     cursor: pointer;
 }
 
-/*
-.filter-container {
+/* TABLE STYLING */
+
+.styled-table {
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+
+.styled-table th, .styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+    border-bottom: thin solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+/* ADD CONTAINER STYLING */
+.add-container {
     display: inline-block;
+    min-width: 200px;
+    max-width: 600px;
+    margin: 10px 10px auto 10px;
+    padding: 20px;
+    border-radius: 3px;
+    background-color: #efefef;
+}
+  
+.add-container h2 {
+    margin: 0;
+}
+
+.add-input-container {
+    width: 100%;
+    margin: 20px 0;
+    align-items: center;
+}
+
+.add-input-element {
+    margin: 0 5px;
+    display: flex;
+    flex: 1 1 100%;
+}
+
+.add-input {
+    font-size: 14px;
+    width: 100%;
     margin-left: 10px;
-    margin-top: 10px;
-    width: 500px;
-    height: 500px;
-    background-color: #ececec;
- }
-
-.filter-input-label {
-    display: inline-block;
-    padding: 0px 5px 25px 0px;
+    padding: 3px;
+    border: thin solid #dadada;
+    border-radius: 3px;
 }
 
-.filter-input-element {
-    display: inline-block;
+.add-fieldset {
+    flex: 1 100%;
+    border: thin solid #ababab;
 }
 
-#filter-text {
-    width: 150px;
-}
-
-#filter-min-price {
-    width: 65px;
-}
-
-#filter-max-price {
-    width: 65px;
-}
-
-#filter-city {
-    width: 160px;
-}
-
-.action-button {
-    border: 0px;
-    border-radius: 5px;
-    margin: 20px 0px;
-    display: inline-block;
-    background-color: black;
+#submitButton {
+    font-size: 20px;
     color: white;
-}
-
-.action-button:hover {
+    padding: 10px;
+    background-color: #000;
+    border: thin solid #ababab;
+    border-radius: 5px;
+    font-weight: lighter;
     cursor: pointer;
-    background-color: burlywood;
-    color: black;
-    border: 1px solid black;
 }
 
-#filter-update-button {
-    font-weight: 200;
-    font-size: 25px;
-    padding: 10px 60px;
+#submitButton:hover {
+    background-color: #f9d2b2;
+    border-color: #333;
+    color: #333;
 }
-*/
+
+button {
+    font-size: 15px;
+    color: white;
+    padding: 5px;
+    background-color: #000;
+    border: thin solid #ababab;
+    border-radius: 5px;
+    font-weight: lighter;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #f9d2b2;
+    border-color: #333;
+    color: #333;
+}
+
+a:link { text-decoration: none; color: white; }
+a:visited { text-decoration: none; color: white; }
+a:hover { text-decoration: none; color: white; }
+a:active { text-decoration: none; color: white; }

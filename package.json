@@ -11,9 +11,9 @@
   "dependencies": {
     "body-parser": "^1.13.3",
     "express": "^4.13.2",
-    "express-handlebars": "^6.0.6",
+    "express-handlebars": "^2.0.1",
     "express-session": "^1.11.3",
-    "gulp-update": "^0.0.2",
-    "mysql": "^2.8.0"
+    "mysql": "^2.8.0",
+    "nvm-win": "^0.2.4"
   }
 }

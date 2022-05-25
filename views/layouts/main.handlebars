@@ -7,13 +7,26 @@
         <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
         <link rel="stylesheet" href="./style.css">
 
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        {{#each jsscripts}}
+            <script src="/static/{{this}}"></script>
+        {{/each}}
+
         <!--Client side JS; used for navbar redirects-->
         <script src='index.js' charset='utf-8' defer></script>
         
     </head>
     <body>
         <header>
-             <!--Can add navbar here; anything for every page-->   
+            <!--Navbar Functionality--> 
+            <nav id="navbar">  
+                <ul>
+                    <!--Add IDs based on page names, add click listeners in JS-->
+                    <li id="navHome">Home</li>
+                    <li id="navStudents">Students</li>
+                    <li id="navTutors">Tutors</li>
+                </ul>
+            </nav>  
         </header>
         {{{body}}}
     </body>

@@ -1,0 +1,16 @@
+<html>
+    <main>
+        <h1>Update {{Tutors.firstName}} {{Tutors.lastName}}:</h1>
+        <form id="update-tutor" action="/Tutors" method="post">
+            First name: <br><input type="text" name="firstName" value="{{Tutors.firstName}}"><br>
+            Last Name: <br><input type="text" name="lastName" value="{{Tutors.lastName}}"><br>
+            Email: <br><input type="text" name="email" value="{{Tutors.email}}"><br>
+            Affiliated Colleges: <br><input type="text" name="affiliatedColleges" value="{{Tutors.affiliatedColleges}}"><br>
+            Gender: <br><input type="text" name="gender" value="{{Tutors.gender}}"><br>
+            Age: <br><input type="number" name="age" value="{{Tutors.age}}"><br>
+            Hourly Rate: <br><input type="text" name="hourlyRate" value="{{Tutors.hourlyRate}}"><br>
+            Class Expertise: <br><input type="text" name="classExpertise" value="{{Tutors.classExpertise}}"><br>
+        </form>
+        <button onclick="updateTutor({{Tutors.tutorID}})">Update</button>
+    </main>
+</html>

@@ -1,63 +1,45 @@
-/*
-    Uses express, dbcon for database connection, body parser to parse form data
-    handlebars for HTML templates
-*/
-
 var express = require('express');
-var exphbs = require('express-handlebars')
-var mysql = require('./dbcon.js');
+var db = require('./dbcon.js')
 var bodyParser = require('body-parser');
 
+// set port to 2293 for testing, start server with terminal command "node main.js"
 var app = express();
-var handlebars = require('express-handlebars').create({ defaultLayout:'main',});
+var port = 2293;
 
+var handlebars = require('express-handlebars').create({defaultLayout: 'main'});
 app.engine('handlebars', handlebars.engine);
+
+app.set('view engine', 'handlebars')
 app.use(bodyParser.urlencoded({extended:true}));
-app.use('/static', express.static('public'));
-app.set('view engine', 'handlebars');
-app.set('port', process.argv[2]);
-app.set('mysql', mysql);
 
-app.use('/colleges', require('./colleges.js'));
-app.use('/delete', require('./delete.js'));
+app.use('/static', express.static('public'))
+app.use('/', express.static('public'))
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true}))
+
+// use the database, make sure files are there
+app.set('mysql', db)
+app.use('/Students', require('./Students.js'));
+app.use('/Tutors', require('./Tutors.js'));
+
+// set each page to its proper rendering
 app.get('/', function (req, res, next) {
-  res.status(200).render('home', {}) 
+  res.status(200).render('index', {}) 
 });
 
-app.get('/students', function (req, res, next) {
-  res.status(200).render('students', {}) 
+app.get('/Students', function (req, res, next) {
+  res.status(200).render('Students', {}) 
 });
 
-app.get('/tutors', function (req, res, next) {
-  res.status(200).render('tutors', {}) 
+app.get('/Tutors', function (req, res, next) {
+  res.status(200).render('Tutors', {}) 
 });
 
-app.get('/colleges', function (req, res, next) {
-  res.status(200).render('colleges', {}) 
-});
+app.get('*', function (req, res) {
+  res.status(404).render('404')
+})
 
-app.get('/update', function (req, res, next) {
-  res.status(200).render('update', {}) 
-});
-
-app.get('/delete', function (req, res, next) {
-  res.status(200).render('delete', {}) 
-});
-
-app.use('/', express.static('public'));
-
-app.use(function(req,res){
-  res.status(404);
-  res.render('404');
-});
-
-app.use(function(err, req, res, next){
-  console.error(err.stack);
-  res.status(500);
-  res.render('500');
-});
-
-app.listen(app.get('port'), function(){
-  console.log('Express started on http://localhost:' + app.get('port') + '; press Ctrl-C to terminate.');
+app.listen(port, function(){
+  console.log('Express started on http://localhost:' + port + '; press Ctrl-C to terminate.');
 });

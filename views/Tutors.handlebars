@@ -1,0 +1,94 @@
+<html>
+  <main>
+
+    <aside class="add-container">
+        <h2>Add New Tutor</h2>
+        <form id="addTutor" action="/Tutors" method="post">
+            <div class="add-input-container">
+            <label for="add-text" class="add-input-label">First Name</label>
+              <div class="add-input-element">
+                <input type="text" name="firstName" id="add-text" class="add-input">
+              </div>
+            </div>
+
+            <div class="add-input-container">
+            <label for="add-text" class="add-input-label">Last Name</label>
+              <div class="add-input-element">
+                <input type="text" name="lastName" id="add-text" class="add-input">
+              </div>
+            </div>
+
+            <div class="add-input-container">
+            <label for="add-text" class="add-input-label">Email</label>
+              <div class="add-input-element">
+                <input type="text" name="email" id="add-text" class="add-input">
+              </div>
+            </div>
+
+            <div class="add-input-container">
+            <label for="add-text" class="add-input-label">Affiliated Colleges</label>
+              <div class="add-input-element">
+                <input type="text" name="affiliatedColleges" id="add-text" class="add-input">
+              </div>
+            </div>
+
+            <div class="add-input-container">
+            <label for="add-text" class="add-input-label">Gender</label>
+              <div class="add-input-element">
+                <input type="text" name="gender" id="add-text" class="add-input">
+              </div>
+            </div>
+
+            <div class="add-input-container">
+            <label for="add-text" class="add-input-label">Age</label>
+              <div class="add-input-element">
+                <input type="text" name="age" id="add-text" class="add-input">
+              </div>
+            </div>
+
+            <div class="add-input-container">
+            <label for="add-text" class="add-input-label">Hourly Rate</label>
+              <div class="add-input-element">
+                <input type="text" name="hourlyRate" id="add-text" class="add-input">
+              </div>
+            </div>
+
+            <div class="add-input-container">
+            <label for="add-text" class="add-input-label">Class Expertise</label>
+              <div class="add-input-element">
+                <input type="text" name="classExpertise" id="add-text" class="add-input">
+              </div>
+            </div>
+            <input type="submit" id="submitButton" value="Submit">
+      </form>
+    </aside><br><br>
+
+    <table class="styled-table">
+      <tr>
+        <th>First Name</th> 
+        <th>Last Name</th> 
+        <th>Email</th>
+        <th>Affiliated Colleges</th>
+        <th>Gender</th>
+        <th>Age</th>
+        <th>Hourly Rate</th>
+        <th>Class Expertise</th>
+      </tr>
+        {{#each Tutors}} 
+          <tr> 
+            <td>{{firstName}}</td> 
+            <td>{{lastName}}</td>
+            <td>{{email}}</td> 
+            <td>{{affiliatedColleges}}</td> 
+            <td>{{gender}}</td> 
+            <td>{{age}}</td>  
+            <td>{{hourlyRate}}</td>
+            <td>{{classExpertise}}</td> 
+            <td><button onclick="deleteTutor({{tutorID}})">Delete</button></td>
+            <td><button id="updateButton"><a href="/Tutors/{{tutorID}}">Update</a></button></td>
+          </tr> 
+        {{/each}}  
+    </table>
+    
+  </main>
+</html>
