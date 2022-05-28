@@ -5,7 +5,6 @@
         <title>College Tutoring</title>
         
         <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
-        <link rel="stylesheet" href="./style.css">
 
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
         {{#each jsscripts}}
@@ -13,18 +12,21 @@
         {{/each}}
 
         <!--Client side JS; used for navbar redirects-->
-        <script src='index.js' charset='utf-8' defer></script>
-        
+        <script src='/index.js' charset='utf-8' defer></script>
+        <link rel="stylesheet" href="/style.css">
     </head>
+
     <body>
         <header>
             <!--Navbar Functionality--> 
             <nav id="navbar">  
                 <ul>
                     <!--Add IDs based on page names, add click listeners in JS-->
-                    <li id="navHome">Home</li>
+                    <li id="navHome">Home</a></li>
                     <li id="navStudents">Students</li>
                     <li id="navTutors">Tutors</li>
+                    <li id="navClasses">Classes</li>
+                    <li id="navColleges">Colleges</li>
                 </ul>
             </nav>  
         </header>

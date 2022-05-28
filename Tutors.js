@@ -28,6 +28,35 @@ module.exports = function(){
         });
     }
 
+    /* Find Tutors whose firstName starts with a given string */
+    function getTutorsfirstName(req, res, mysql, context, complete) {
+        //sanitize the input as well as include the % character
+        var query = "SELECT tutorID, firstName, lastName, email, affiliatedColleges, gender, age, hourlyRate, classExpertise FROM Tutors WHERE firstName LIKE " + mysql.pool.escape(req.params.s + '%');
+        mysql.pool.query(query, function(error, results, fields){
+            if(error){
+                res.write(JSON.stringify(error));
+                res.end();
+            }
+            context.Tutors = results;
+            complete();
+        });
+    }
+
+    /* Display Tutors whose name starts with a given string */
+    router.get('/search/:s', function(req, res){
+        var callbackCount = 0;
+        var context = {};
+        context.jsscripts = ["delete.js", "search.js"];
+        var mysql = req.app.get('mysql');
+        getTutorsfirstName(req, res, mysql, context, complete);
+        function complete(){
+            callbackCount++;
+            if(callbackCount >= 1){
+                res.render('Tutors', context);
+            }
+        }
+    });
+
     // adds a tutor, redirects to the tutors page after adding
     router.post('/', function(req, res){
         var mysql = req.app.get('mysql');
@@ -48,7 +77,7 @@ module.exports = function(){
     router.get('/', function(req, res) {
         var callbackCount = 0;
         var context = {};
-        context.jsscripts = ["deleteTutors.js", "searchTutors.js"];
+        context.jsscripts = ["delete.js", "search.js"];
         var mysql = req.app.get('mysql');
         getTutors(res, mysql, context, complete);
         function complete() {
@@ -63,7 +92,7 @@ module.exports = function(){
     router.get('/:tutorID', function(req, res){
         callbackCount = 0;
         var context = {};
-        context.jsscripts = ["updateTutors.js"];
+        context.jsscripts = ["update.js"];
         var mysql = req.app.get('mysql');
         getTutor(res, mysql, context, req.params.tutorID, complete);
         function complete(){

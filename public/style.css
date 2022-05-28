@@ -5,11 +5,11 @@ body {
     padding-bottom: 30px;
     font-size: 16px;
     font-weight: 400;
+    background-color: #023E8A;
+    color: #CAF0F8;
 }
 
-header {
-    background-color: black;
-}
+h2 { text-align: center }
 
 /* NAVBAR STYLING */
 
@@ -17,9 +17,9 @@ header {
     /*Aligns the rest of the nav-bar items to the right of the screen*/
     flex-grow: 1;
     display: flex;
-
     position: fixed;
-    background-color: black;
+    background-color: #03045E;
+    color: #CAF0F8;
     top: 0; /* Position the navbar at the top of the page */
     width: 100%; /* Full width */
 }
@@ -55,6 +55,7 @@ header {
 /* TABLE STYLING */
 
 .styled-table {
+    background-color: #0096C7;
     margin-left: auto;
     margin-right: auto;
     border-collapse: collapse;
@@ -65,25 +66,26 @@ header {
 }
 
 .styled-table thead tr {
-    background-color: #009879;
-    color: #ffffff;
+    color: black;
     text-align: left;
 }
 
 .styled-table th, .styled-table td {
+    color: black;
     padding: 12px 15px;
 }
 
 .styled-table tbody tr {
-    border-bottom: thin solid #dddddd;
+    background-color: #90E0EF;
+    border-bottom: thin solid black;
 }
 
 .styled-table tbody tr:nth-of-type(even) {
-    background-color: #f3f3f3;
+    background-color: #ADE8F4;
 }
 
 .styled-table tbody tr:last-of-type {
-    border-bottom: 2px solid #009879;
+    border-bottom: 3px solid black;
 }
 
 /* ADD CONTAINER STYLING */
@@ -94,7 +96,7 @@ header {
     margin: 10px 10px auto 10px;
     padding: 20px;
     border-radius: 3px;
-    background-color: #efefef;
+    background-color: #03045E;
 }
   
 .add-container h2 {
@@ -118,7 +120,8 @@ header {
     width: 100%;
     margin-left: 10px;
     padding: 3px;
-    border: thin solid #dadada;
+    background-color: #00B4D8;
+    border: thin solid black;
     border-radius: 3px;
 }
 
@@ -128,9 +131,9 @@ header {
 }
 
 #submitButton {
-    font-size: 20px;
+    font-size: 14px;
     color: white;
-    padding: 10px;
+    padding: 5px;
     background-color: #000;
     border: thin solid #ababab;
     border-radius: 5px;
@@ -161,7 +164,88 @@ button:hover {
     color: #333;
 }
 
+#searchButton {
+    font-size: 15px;
+    color: white;
+    padding: 5px;
+    background-color: #000;
+    border: thin solid #ababab;
+    border-radius: 5px;
+    font-weight: lighter;
+    cursor: pointer;
+}
+
+#searchButton:hover {
+    background-color: #f9d2b2;
+    border-color: #333;
+    color: #333;
+}
+
+/* Removes any decoration on links (mainly for update buttons) */
 a:link { text-decoration: none; color: white; }
 a:visited { text-decoration: none; color: white; }
-a:hover { text-decoration: none; color: white; }
+a:hover { text-decoration: none; color: black; }
 a:active { text-decoration: none; color: white; }
+
+/* For search input container */
+.searchContainer {
+    text-align: center;
+    background-color: #03045E;
+    border: thin solid black;
+    border-radius: 5px;
+    color: white;
+    font-weight: 700;
+    margin: auto;
+    margin-bottom: 20px;
+    margin-top: 15px;
+    width: 50%;
+    padding: 10px;
+}
+
+.searchContainer input {
+    font-size: 16px;
+    padding: 3px;
+    background-color: #00B4D8;
+    border: thin solid black;
+    border-radius: 3px;
+}
+
+.addContainer {
+    text-align: center;
+    background-color: #03045E;
+    border: thin solid black;
+    border-radius: 5px;
+    color: white;
+    font-weight: 700;
+    margin: auto;
+    margin-bottom: 20px;
+    margin-top: 15px;
+    min-width: 200px;
+    max-width: 800px;
+    padding: 10px;
+}
+
+.addContainer input {
+    margin: 5px 10px 5px 0;
+    padding: 3px;
+    background-color: #00B4D8;
+    border: thin solid black;
+    border-radius: 3px;
+}
+
+.addContainerTitle {
+    font-size: 14px;
+    color: white;
+    margin: auto;
+    text-align: center;
+}
+
+.form-inline {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+
+.form-inline label {
+    margin: 5px 10px 5px 0;
+}

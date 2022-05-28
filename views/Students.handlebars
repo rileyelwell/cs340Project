@@ -1,33 +1,29 @@
 <html>
   <main>
 
-    <h3>Add a new student:</h3>
-    <form id="addStudent" action="/Students" method="post">
-      First Name: <br><input type="text" name="firstName"><br>
-      Last Name: <br><input type="text" name="lastName"><br>
-      GPA: <br><input type="number" name="gpa"><br>
-      College: <br><input type="text" name="college"><br>
-      Email: <br><input type="text" name="email"><br>
-      Gender: <br><input type="text" name="gender"><br>
-      Year in School: <br><input type="number" name="yearInSchool" placeholder="24"><br>
-      Max Budget: <br><input type="number" name="tutoringBudget"><br>
-      Classes Needed Help In: <br><input type="text" name="classesHelpNeededIn"><br>
-      <input type="submit" value="Submit">
-    </form>
-    <br/>
+    <div class="searchContainer">
+      <form id='searchStudents' action='' method='' onkeydown="return event.key != 'Enter';">
+        <label> Search Students by First Name</label>
+        <input id='studentSearch' type='text' name='studentSearch' value=''>
+        <input type="button" id = 'searchButton' value="Search" onclick="searchStudentsFirstName();">
+        <button><a href="/Students">Reset</a></button>
+      </form>
+    </div>
 
     <table class="styled-table">
-      <tr>
-        <th>First Name</th> 
-        <th>Last Name</th> 
-        <th>GPA</th>
-        <th>Email</th>
-        <th>College</th>
-        <th>Gender</th>
-        <th>Year in School</th>
-        <th>Budget</th>
-        <th>Classes Need Help In</th>
-      </tr>
+      <thead>
+        <tr>
+          <th>First Name</th> 
+          <th>Last Name</th> 
+          <th>GPA</th>
+          <th>Email</th>
+          <th>College</th>
+          <th>Gender</th>
+          <th>Year in School</th>
+          <th>Budget</th>
+          <th>Classes Need Help In</th>
+        </tr>
+      </thead>
         {{#each Students}} 
           <tr> 
             <td>{{firstName}}</td> 
@@ -40,9 +36,47 @@
             <td>{{tutoringBudget}}</td> 
             <td>{{classesHelpNeededIn}}</td>
             <td><button onclick="deleteStudent({{studentID}})">Delete</button></td>
-            <td><a href="/Students/{{studentID}}">Update</a></td>
+            <td><button><a href="/Students/{{studentID}}">Update</a></button></td>
           </tr> 
-        {{/each}}  
+        {{/each}} 
     </table>
+
+    <div class="addContainerTitle">
+      <h3>Add a new student</h3>
+      <div class="addContainer">
+        <form class="form-inline" action="/Students" method="post">
+
+          <label for="firstName">First Name</label>
+          <input type="text" name="firstName">
+
+          <label for="lastName">Last Name</label>
+          <input type="text" name="lastName">
+
+          <label for="gpa">GPA</label>
+          <input type="number" name="gpa">
+
+          <label for="email">Email</label>
+          <input type="text" name="email">
+
+          <label for="college">College </label>
+          <input type="text" name="college">
+
+          <label for="gender">Gender</label>
+          <input type="text" name="gender">
+
+          <label for="yearInSchool">Year in School</label>
+          <input type="number" name="yearInSchool">
+
+          <label for="tutoringBudget">Tutoring Budget</label>
+          <input type="number" name="tutoringBudget">
+
+          <label for="classesHelpNeededIn">Classes Need Help In</label>
+          <input type="text" name="classesHelpNeededIn">
+
+          <input type="submit" id="submitButton" value="Submit">
+        </form>
+      </div>
+    </div>
+
   </main>
 </html>

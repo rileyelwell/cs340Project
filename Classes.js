@@ -2,112 +2,112 @@ module.exports = function(){
     var express = require('express');
     var router = express.Router();
 
-    // gets Students from database 
-    function getStudents(res, mysql, context, complete){
-        mysql.pool.query("SELECT studentID, firstName, lastName, gpa, email, college, gender, yearInSchool, tutoringBudget, classesHelpNeededIn FROM Students", function(error, results, fields){
+    // gets Classes from database 
+    function getClasses(res, mysql, context, complete){
+        mysql.pool.query("SELECT classID, department, campusBuilding, roomNumber, title FROM Classes", function(error, results, fields){
             if(error){
                 res.write(JSON.stringify(error));
                 res.end();
             }
-            context.Students = results;
+            context.Classes = results;
             complete();
         });
     }
 
-    // gets one student (for updating)
-    function getStudent(res, mysql, context, studentID, complete){
-        var sql = "SELECT studentID, firstName, lastName, gpa, email, college, gender, yearInSchool, tutoringBudget, classesHelpNeededIn FROM Students WHERE studentID = ?";
-        var inserts = [studentID];
+    // gets one class (for updating)
+    function getClass(res, mysql, context, classID, complete){
+        var sql = "SELECT classID, department, campusBuilding, roomNumber, title FROM Classes WHERE classID = ?";
+        var inserts = [classID];
         mysql.pool.query(sql, inserts, function(error, results, fields){
             if(error){
                 res.write(JSON.stringify(error));
                 res.end();
             }
-            context.Students = results[0];
+            context.Classes = results[0];
             complete();
         });
     }
 
-    /* Find Students whose firstName starts with a given string */
-    function getStudentsfirstName(req, res, mysql, context, complete) {
+    /* Find Classes with a given string */
+    function getClassesDept(req, res, mysql, context, complete) {
         //sanitize the input as well as include the % character
-        var query = "SELECT studentID, firstName, lastName, gpa, email, college, gender, yearInSchool, tutoringBudget, classesHelpNeededIn FROM Students WHERE firstName LIKE " + mysql.pool.escape(req.params.s + '%');
+        var query = "SELECT classID, department, campusBuilding, roomNumber, title FROM Classes WHERE department LIKE " + mysql.pool.escape(req.params.s + '%');
         mysql.pool.query(query, function(error, results, fields){
             if(error){
                 res.write(JSON.stringify(error));
                 res.end();
             }
-            context.Students = results;
+            context.Classes = results;
             complete();
         });
     }
 
-    /* Display Students whose name starts with a given string */
+    /* Display Classes with a given string */
     router.get('/search/:s', function(req, res){
         var callbackCount = 0;
         var context = {};
-        context.jsscripts = ["delete.js","search.js"];
+        context.jsscripts = ["delete.js", "search.js"];
         var mysql = req.app.get('mysql');
-        getStudentsfirstName(req, res, mysql, context, complete);
+        getClassesDept(req, res, mysql, context, complete);
         function complete(){
             callbackCount++;
             if(callbackCount >= 1){
-                res.render('Students', context);
+                res.render('Classes', context);
             }
         }
     });
 
-    // adds a student, redirects to the Students page after adding
+    // adds a class, redirects to the Classes page after adding
     router.post('/', function(req, res){
         var mysql = req.app.get('mysql');
-        var sql = "INSERT INTO Students (firstName, lastName, gpa, email, college, gender, yearInSchool, tutoringBudget, classesHelpNeededIn) VALUES (?,?,?,?,?,?,?,?,?)";
-        var inserts = [req.body.firstName, req.body.lastName, req.body.gpa, req.body.email, req.body.college, req.body.gender, req.body.yearInSchool, req.body.tutoringBudget, req.body.classesHelpNeededIn];
+        var sql = "INSERT INTO Classes (department, campusBuilding, roomNumber, title) VALUES (?,?,?,?)";
+        var inserts = [req.body.department, req.body.campusBuilding, req.body.roomNumber, req.body.title];
         sql = mysql.pool.query(sql,inserts,function(error, results, fields){
             if(error){
                 console.log(JSON.stringify(error))
                 res.write(JSON.stringify(error));
                 res.end();
             }else{
-                res.redirect('/Students');
+                res.redirect('/Classes');
             }
         });
     });
 
-    // displays Students from database
+    // displays Classes from database
     router.get('/', function(req, res) {
         var callbackCount = 0;
         var context = {};
         context.jsscripts = ["delete.js", "search.js"];
         var mysql = req.app.get('mysql');
-        getStudents(res, mysql, context, complete);
+        getClasses(res, mysql, context, complete);
         function complete() {
             callbackCount++;
             if(callbackCount >= 1) {
-                res.render('Students', context);
+                res.render('Classes', context);
             }
         }
     });
 
-    // displays one student for updating
-    router.get('/:studentID', function(req, res){
+    // displays one class for updating
+    router.get('/:classID', function(req, res){
         callbackCount = 0;
         var context = {};
-        context.jsscripts = ["update.js","index.js"];
+        context.jsscripts = ["update.js"];
         var mysql = req.app.get('mysql');
-        getStudent(res, mysql, context, req.params.studentID, complete);
+        getClass(res, mysql, context, req.params.classID, complete);
         function complete(){
             callbackCount++;
             if(callbackCount >= 1){
-                res.render('update-student', context);
+                res.render('update-class', context);
             }
         }
     });
 
     // The URI that update data is sent to in order to update a person
-    router.put('/:studentID', function(req, res){
+    router.put('/:classID', function(req, res){
         var mysql = req.app.get('mysql');
-        var sql = "UPDATE Students SET firstName=?, lastName=?, gpa=?, email=?, college=?, gender=?, yearInSchool=?, tutoringBudget=?, classesHelpNeededIn=? WHERE studentID=?";
-        var inserts = [req.body.firstName, req.body.lastName, req.body.gpa, req.body.email, req.body.college, req.body.gender, req.body.yearInSchool, req.body.tutoringBudget, req.body.classesHelpNeededIn, req.params.studentID];
+        var sql = "UPDATE Classes SET department=?, campusBuilding=?, roomNumber=?, title=? WHERE classID=?";
+        var inserts = [req.body.department, req.body.campusBuilding, req.body.roomNumber, req.body.title, req.params.classID];
         sql = mysql.pool.query(sql,inserts,function(error, results, fields){
             if(error){
                 console.log(error)
@@ -121,10 +121,10 @@ module.exports = function(){
     });
 
     // deletes a student from database
-    router.delete('/:studentID', function(req, res){
+    router.delete('/:classID', function(req, res){
         var mysql = req.app.get('mysql');
-        var sql = "DELETE FROM Students WHERE studentID = ?";
-        var inserts = [req.params.studentID];
+        var sql = "DELETE FROM Classes WHERE classID = ?";
+        var inserts = [req.params.classID];
         sql = mysql.pool.query(sql, inserts, function(error, results, fields){
             if(error){
                 console.log(error)
@@ -136,10 +136,6 @@ module.exports = function(){
             }
         })
     })
-
-
-
-
 
     return router;
 }();

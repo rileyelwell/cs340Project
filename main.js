@@ -22,12 +22,15 @@ app.use(bodyParser.urlencoded({ extended: true}))
 app.set('mysql', db)
 app.use('/Students', require('./Students.js'));
 app.use('/Tutors', require('./Tutors.js'));
+app.use('/Classes', require('./Classes.js'));
+app.use('/Colleges', require('./Colleges.js'));
 
 // set each page to its proper rendering
 app.get('/', function (req, res, next) {
   res.status(200).render('index', {}) 
 });
 
+/*
 app.get('/Students', function (req, res, next) {
   res.status(200).render('Students', {}) 
 });
@@ -35,6 +38,14 @@ app.get('/Students', function (req, res, next) {
 app.get('/Tutors', function (req, res, next) {
   res.status(200).render('Tutors', {}) 
 });
+
+app.get('/Classes', function (req, res, next) {
+  res.status(200).render('Classes', {}) 
+});
+
+app.get('/Colleges', function (req, res, next) {
+  res.status(200).render('Colleges', {}) 
+});*/
 
 app.get('*', function (req, res) {
   res.status(404).render('404')

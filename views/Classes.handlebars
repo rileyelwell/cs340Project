@@ -1,0 +1,57 @@
+<html>
+  <main>
+
+    <div class="searchContainer">
+      <form id='searchClasses' action='' method='' onkeydown="return event.key != 'Enter';">
+        <label> Search Classes by Department</label>
+        <input id='classSearch' type='text' name='classSearch' value=''>
+        <input type="button" id = 'searchButton' value="Search" onclick="searchClasses();">
+        <button><a href="/Classes">Reset</a></button>
+      </form>
+    </div>
+
+    <table class="styled-table">
+      <thead>
+        <tr>
+            <th>Department</th> 
+            <th>Campus Building</th> 
+            <th>Room Number</th>
+            <th>Title</th>
+        </tr>
+      </thead>
+        {{#each Classes}} 
+          <tr> 
+            <td>{{department}}</td> 
+            <td>{{campusBuilding}}</td>
+            <td>{{roomNumber}}</td> 
+            <td>{{title}}</td> 
+            <td><button onclick="deleteClass({{classID}})">Delete</button></td>
+            <td><button><a href="/Classes/{{classID}}">Update</a></button></td>
+          </tr> 
+        {{/each}}  
+    </table>
+
+    <div class="addContainerTitle">
+      <h3>Add a new class</h3>
+      <div class="addContainer">
+        <form class="form-inline" action="/Classes" method="post">
+
+          <label for="department">Department</label>
+          <input type="text" name="department" placeholder="Computer Science">
+
+          <label for="campusBuilding">Campus Building</label>
+          <input type="text" name="campusBuilding" placeholder="Weniger Hall">
+
+          <label for="roomNumber">Room Number</label>
+          <input type="number" name="roomNumber" placeholder="230">
+
+          <label for="title">Title</label>
+          <input type="text" name="title" placeholder="Intro to Databases">
+          
+          <input type="submit" id="submitButton" value="Submit">
+        </form>
+      </div>
+    </div>
+   
+  </main>
+</html>
