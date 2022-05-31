@@ -1,0 +1,49 @@
+<html>
+    <main>
+        <div class="outerContainer">
+            <div class="addContainer">
+                <h3> Add a Student-Tutor Relationship </h3>
+                <form id="addStudentTutors" action="/StudentsTutors" method="post">
+                    Student <select name='studentID'>
+                    {{#each Students}}
+                        <option value='{{studentID}}'> {{studentID}} ({{firstName}} {{lastName}})</option>
+                    {{/each}}
+                    </select>
+                    
+                    Tutor <select name="tutorID">
+                    {{#each Tutors}}
+                        <option value='{{tutorID}}'> {{tutorID}} ({{firstName}} {{lastName}})</option>
+                    {{/each}}
+                    </select>
+                <input type="submit" id="styledButton" value="Submit">
+                </form>
+            </div>
+        </div>
+
+        <div class="outerContainer">
+            <h3> List of Students and their Tutors </h3>
+            <table class="styled-table">
+                <thead> 
+                    <th>StudentID</th> 
+                    <th>Student Name</th>
+                    <th>TutorID</th> 
+                    <th>Tutor Name</th>
+                    <th>Delete</th>
+                </thead> 
+                <tbody> 
+                    {{#each StudentsTutors}} 
+                        <tr> 
+                            <td>{{studentID}}</td> 
+                            <td>{{sfn}}</td>
+                            <td>{{tutorID}}</td>
+                            <td>{{tfn}}</td>
+                            <td><button id="styledButton" onclick="deleteStudentTutor({{studentID}},{{tutorID}})">Delete</button></td>
+                        </tr>
+                        {{else}}
+                            <b> No Students with any Tutors found! Grant some using the form. </b>
+                    {{/each}} 
+                </tbody>
+            </table>
+        </div>
+    </main>
+</html>

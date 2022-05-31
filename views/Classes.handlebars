@@ -1,13 +1,15 @@
 <html>
   <main>
 
-    <div class="searchContainer">
-      <form id='searchClasses' action='' method='' onkeydown="return event.key != 'Enter';">
-        <label> Search Classes by Department</label>
-        <input id='classSearch' type='text' name='classSearch' value=''>
-        <input type="button" id = 'searchButton' value="Search" onclick="searchClasses();">
-        <button><a href="/Classes">Reset</a></button>
-      </form>
+    <div class="outerContainer">
+      <div class="addContainer">
+        <form id='searchClasses' class="form-inline" action='' method='' onkeydown="return event.key != 'Enter';">
+          <label> Search Classes by Department</label>
+          <input id='classSearch' type='text' name='classSearch' value=''>
+          <input type="button" id="styledButton" value="Search" onclick="searchClasses();">
+          <button id="styledButton"><a href="/Classes">Reset</a></button>
+        </form>
+      </div>
     </div>
 
     <table class="styled-table">
@@ -17,6 +19,8 @@
             <th>Campus Building</th> 
             <th>Room Number</th>
             <th>Title</th>
+            <th>Delete</th>
+            <th>Update</th>
         </tr>
       </thead>
         {{#each Classes}} 
@@ -25,32 +29,33 @@
             <td>{{campusBuilding}}</td>
             <td>{{roomNumber}}</td> 
             <td>{{title}}</td> 
-            <td><button onclick="deleteClass({{classID}})">Delete</button></td>
-            <td><button><a href="/Classes/{{classID}}">Update</a></button></td>
+            <td><button id="styledButton" onclick="deleteClass({{classID}})">Delete</button></td>
+            <td><button id="styledButton"><a href="/Classes/{{classID}}">Update</a></button></td>
           </tr> 
         {{/each}}  
     </table>
 
-    <div class="addContainerTitle">
-      <h3>Add a new class</h3>
-      <div class="addContainer">
-        <form class="form-inline" action="/Classes" method="post">
+    <div class="outerContainer">
+      <div class="addContainerTitle">
+        <div class="addContainer">
+          <h3>Add a New Class</h3>
+          <form class="form-inline" action="/Classes" method="post">
 
-          <label for="department">Department</label>
-          <input type="text" name="department" placeholder="Computer Science">
+            <label for="department">Department</label>
+            <input type="text" name="department" placeholder="Computer Science">
 
-          <label for="campusBuilding">Campus Building</label>
-          <input type="text" name="campusBuilding" placeholder="Weniger Hall">
+            <label for="campusBuilding">Campus Building</label>
+            <input type="text" name="campusBuilding" placeholder="Weniger Hall">
 
-          <label for="roomNumber">Room Number</label>
-          <input type="number" name="roomNumber" placeholder="230">
+            <label for="roomNumber">Room Number</label>
+            <input class="numberInput" type="number" name="roomNumber" min="0" placeholder="230">
 
-          <label for="title">Title</label>
-          <input type="text" name="title" placeholder="Intro to Databases">
-          
-          <input type="submit" id="submitButton" value="Submit">
-        </form>
-      </div>
+            <label for="title">Title</label>
+            <input type="text" name="title" placeholder="Intro to Databases">
+            
+            <input type="submit" id="styledButton" value="Submit">
+          </form>
+        </div>
     </div>
    
   </main>

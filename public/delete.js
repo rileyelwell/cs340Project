@@ -37,3 +37,18 @@ function deleteCollege(collegeID){
         }
     })
 };
+
+function deleteStudentTutor(studentID, tutorID){
+    $.ajax({
+        url: '/StudentsTutors/studentID/' + studentID + '/tutorID/' + tutorID,
+        type: 'DELETE',
+        success: function(result){
+            if(result.responseText != undefined){
+              alert(result.responseText)
+            }
+            else {
+              window.location.reload(true)
+            } 
+        }
+    })
+};

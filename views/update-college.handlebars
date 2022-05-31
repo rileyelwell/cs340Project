@@ -1,18 +1,20 @@
 <html>
     <main>
-        <h2>Update College</h2>
-            <div class="addContainer">
-                <form class="form-inline" id="update-college" action="/Colleges" method="post">
-                    <label for="address">Address</label>
-                    <input type="text" name="address" value="{{Colleges.address}}">
+        <div class="outerContainer">
+            <h2>Update College</h2>
+                <div class="addContainer">
+                    <form class="form-inline" id="update-college" action="/Colleges" method="post">
+                        <label for="address">Address</label>
+                        <input type="text" name="address" value="{{Colleges.address}}">
 
-                    <label for="tuition">Tuition</label>
-                    <input type="text" name="tuition" value="{{Colleges.tuition}}">
+                        <label for="tuition">Tuition</label>
+                        <input type="text" name="tuition" value="{{Colleges.tuition}}">
 
-                    <label for="ranking">Ranking</label>
-                    <input type="number" name="ranking" value="{{Colleges.ranking}}">
-                </form>
-                <button onclick="updateCollege({{Colleges.collegeID}})">Update</button>
+                        <label for="ranking">Ranking</label>
+                        <input type="number" name="ranking" value="{{Colleges.ranking}}">
+                    </form>
+                    <button id="styledButton" onclick="updateCollege({{Colleges.collegeID}})">Update</button>
+                </div>
             </div>
         </div>
     </main>

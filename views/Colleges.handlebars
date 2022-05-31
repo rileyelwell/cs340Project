@@ -1,13 +1,15 @@
 <html>
   <main>
 
-    <div class="searchContainer">
-      <form id='searchColleges' action='' method='' onkeydown="return event.key != 'Enter';">
-        <label> Search Colleges by Address</label>
-        <input id='collegeSearch' type='text' name='collegeSearch' value=''>
-        <input type="button" id = 'searchButton' value="Search" onclick="searchColleges();">
-        <button><a href="/Colleges">Reset</a></button>
-      </form>
+    <div class="outerContainer"> 
+      <div class="addContainer">
+        <form id='searchColleges' class="form-inline" action='' method='' onkeydown="return event.key != 'Enter';">
+          <label> Search Colleges by Address</label>
+          <input id='collegeSearch' type='text' name='collegeSearch' value=''>
+          <input type="button" id="styledButton" value="Search" onclick="searchColleges();">
+          <button id="styledButton"><a href="/Colleges">Reset</a></button>
+        </form>
+      </div>
     </div>
 
     <table class="styled-table">
@@ -16,6 +18,8 @@
           <th>Address</th> 
           <th>Tuition</th> 
           <th>Ranking</th>
+          <th>Delete</th>
+          <th>Update</th>
         </tr>
       </thead>
         {{#each Colleges}} 
@@ -23,27 +27,27 @@
             <td>{{address}}</td> 
             <td>{{tuition}}</td>
             <td>{{ranking}}</td> 
-            <td><button onclick="deleteCollege({{collegeID}})">Delete</button></td>
-            <td><button><a href="/Colleges/{{collegeID}}">Update</a></button></td>
+            <td><button id="styledButton" onclick="deleteCollege({{collegeID}})">Delete</button></td>
+            <td><button id="styledButton"><a href="/Colleges/{{collegeID}}">Update</a></button></td>
           </tr> 
         {{/each}}  
     </table>
 
-    <div class="addContainerTitle">
-      <h3>Add a new college</h3>
+    <div class="outerContainer"> 
       <div class="addContainer">
+        <h3>Add a New College</h3>
         <form class="form-inline" action="/Colleges" method="post">
 
           <label for="address">Address</label>
           <input type="text" name="address" placeholder="12345 Main Street">
 
           <label for="tuition">Tuition</label>
-          <input type="number" name="tuition" placeholder="40000">
+          <input type="number" name="tuition"  step="0.01" min="0" placeholder="40000">
 
           <label for="ranking">Ranking</label>
-          <input type="number" name="ranking" placeholder="42">
+          <input class="numberInput" type="number" min="0" name="ranking" placeholder="42">
           
-          <input type="submit" id="submitButton" value="Submit">
+          <input type="submit" id="styledButton" value="Submit">
         </form>
       </div>
     </div>

@@ -1,33 +1,35 @@
 <html>
     <main>
-        <h2>Update {{Tutors.firstName}} {{Tutors.lastName}}</h2>
-            <div class="addContainer">
-                <form class="form-inline" id="update-tutor" action="/Tutors" method="post">
-                    <label for="firstName">First Name</label>
-                    <input type="text" name="firstName" value="{{Tutors.firstName}}">
+        <div class="outerContainer">
+            <h2>Update {{Tutors.firstName}} {{Tutors.lastName}}</h2>
+                <div class="addContainer">
+                    <form class="form-inline" id="update-tutor" action="/Tutors" method="post">
+                        <label for="firstName">First Name</label>
+                        <input type="text" name="firstName" value="{{Tutors.firstName}}">
 
-                    <label for="lastName">Last Name</label>
-                    <input type="text" name="lastName" value="{{Tutors.lastName}}">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" name="lastName" value="{{Tutors.lastName}}">
 
-                    <label for="email">Email</label>
-                    <input type="text" name="email" value="{{Tutors.email}}">
+                        <label for="email">Email</label>
+                        <input type="text" name="email" value="{{Tutors.email}}">
 
-                    <label for="affiliatedColleges">Affiliated Colleges</label>
-                    <input type="text" name="affiliatedColleges" value="{{Tutors.affiliatedColleges}}">
+                        <label for="affiliatedColleges">Affiliated Colleges</label>
+                        <input type="text" name="affiliatedColleges" value="{{Tutors.affiliatedColleges}}">
 
-                    <label for="gender">Gender</label>
-                    <input type="text" name="gender" value="{{Tutors.gender}}">
+                        <label for="gender">Gender</label>
+                        <input type="text" name="gender" value="{{Tutors.gender}}">
 
-                    <label for="age">Age</label>
-                    <input type="number" name="age" value="{{Tutors.age}}">
+                        <label for="age">Age</label>
+                        <input type="number" name="age" value="{{Tutors.age}}">
 
-                    <label for="hourlyRate">Hourly Rate</label>
-                    <input type="number" name="hourlyRate" value="{{Tutors.hourlyRate}}">
+                        <label for="hourlyRate">Hourly Rate</label>
+                        <input type="number" name="hourlyRate" value="{{Tutors.hourlyRate}}">
 
-                    <label for="classExpertise">Class Expertise</label>
-                    <input type="text" name="classExpertise" value="{{Tutors.classExpertise}}">
-                </form>
-                <button onclick="updateTutor({{Tutors.tutorID}})">Update</button>
+                        <label for="classExpertise">Class Expertise</label>
+                        <input type="text" name="classExpertise" value="{{Tutors.classExpertise}}">
+                    </form>
+                    <button id="styledButton" onclick="updateTutor({{Tutors.tutorID}})">Update</button>
+                </div>
             </div>
         </div>
     </main>

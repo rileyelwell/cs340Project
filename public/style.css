@@ -1,251 +1,186 @@
+/* Overall Body Styling */
 body {
-    margin:0;
-    padding:0;
+    /* Removes initial padding/margins */
+    margin: 0;
+    padding: 0;
+
+    /* Set correct padding */
     padding-top: 60px; 
     padding-bottom: 30px;
-    font-size: 16px;
-    font-weight: 400;
-    background-color: #023E8A;
-    color: #CAF0F8;
 }
 
-h2 { text-align: center }
+/* Front Page Text Styling */
+.homePageInfo {
+    /* Position text */
+    text-align: center;
+    margin: auto;
+    padding: 5px;
+    width: 50%;
 
-/* NAVBAR STYLING */
+    /* Set colors and add curved edges */
+    background-color: #009879;
+    border-radius: 4px;
+    color: white;
+}
 
+/* Navbar Styling */
 #navbar {
-    /*Aligns the rest of the nav-bar items to the right of the screen*/
-    flex-grow: 1;
+    /* Positions navbar correctly */
     display: flex;
+    flex-grow: 1;
+    top: 0;
+    width: 100%;
+
+    /* Keeps navbar fixed when scrolling */
     position: fixed;
-    background-color: #03045E;
-    color: #CAF0F8;
-    top: 0; /* Position the navbar at the top of the page */
-    width: 100%; /* Full width */
+
+    /* Sets green color background */
+    background-color: #009879;
 }
 
 #navbar ul {
-    /*Removes bullet points from the list*/
+    /* Removes bullet points from the list */
     display: flex;
     list-style-type: none;
 
-    /*Removes default list padding/margins*/
+    /* Removes default list margins */
     margin: 0;
 
-    /*Styles the font of navbar items*/
-    font-size: 30px;
+    /* Styles the font of navbar items */
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 20px;
     font-weight: 300;
-    color: #edede8;
+    color: white;
 }
 
 #navbar li {
-    /*Adjusts the spacing between items in the navbar*/
+    /* Adjusts the spacing between items in the navbar */
     margin: 0;
     padding: 10px;
 }
 
 #navbar li:hover {
-    /*Changes the color of navbar elements on hover*/
-    background-color: #4b4f40;
+    /* Changes the color of navbar elements on hover */
+    background-color: black;
 
-    /*Styles the mouse to show interactivity w/these*/
+    /* Styles the mouse to show interactivity */
     cursor: pointer;
 }
 
-/* TABLE STYLING */
-
+/* Display Table Styling */
 .styled-table {
-    background-color: #0096C7;
-    margin-left: auto;
-    margin-right: auto;
+    /* Positions table correctly */
+    margin: auto;
     border-collapse: collapse;
-    font-size: 0.9em;
-    font-family: sans-serif;
     min-width: 400px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
+    /* Styles the font */
+    font-size: 0.9em;
+    font-family: sans-serif;
 }
 
 .styled-table thead tr {
-    color: black;
+    background-color: #009879;
+    color: #ffffff;
     text-align: left;
 }
 
-.styled-table th, .styled-table td {
-    color: black;
-    padding: 12px 15px;
-}
+/* Adds padding for table elements */
+.styled-table th, .styled-table td { padding: 12px 15px; }
 
-.styled-table tbody tr {
-    background-color: #90E0EF;
-    border-bottom: thin solid black;
-}
+/* Adds darkness to every other row, easier to read */
+.styled-table tbody tr:nth-of-type(even) { background-color: #f3f3f3; }
 
-.styled-table tbody tr:nth-of-type(even) {
-    background-color: #ADE8F4;
-}
+/* Adds a green border to bottom of table */
+.styled-table tbody tr:last-of-type { border-bottom: 3px solid #009879; }
 
-.styled-table tbody tr:last-of-type {
-    border-bottom: 3px solid black;
-}
-
-/* ADD CONTAINER STYLING */
-.add-container {
-    display: inline-block;
-    min-width: 200px;
-    max-width: 600px;
-    margin: 10px 10px auto 10px;
-    padding: 20px;
-    border-radius: 3px;
-    background-color: #03045E;
-}
-  
-.add-container h2 {
-    margin: 0;
-}
-
-.add-input-container {
-    width: 100%;
-    margin: 20px 0;
-    align-items: center;
-}
-
-.add-input-element {
-    margin: 0 5px;
-    display: flex;
-    flex: 1 1 100%;
-}
-
-.add-input {
-    font-size: 14px;
-    width: 100%;
-    margin-left: 10px;
-    padding: 3px;
-    background-color: #00B4D8;
-    border: thin solid black;
-    border-radius: 3px;
-}
-
-.add-fieldset {
-    flex: 1 100%;
-    border: thin solid #ababab;
-}
-
-#submitButton {
-    font-size: 14px;
-    color: white;
-    padding: 5px;
-    background-color: #000;
-    border: thin solid #ababab;
-    border-radius: 5px;
-    font-weight: lighter;
-    cursor: pointer;
-}
-
-#submitButton:hover {
-    background-color: #f9d2b2;
-    border-color: #333;
-    color: #333;
-}
-
-button {
+/* Button Styling */
+#styledButton {
+    /* Font Styling */
     font-size: 15px;
     color: white;
-    padding: 5px;
-    background-color: #000;
-    border: thin solid #ababab;
-    border-radius: 5px;
     font-weight: lighter;
+
+    /* Set padding and color */
+    padding: 5px;
+    background-color: black;
+
+    /* Set border and add curved edges */
+    border-radius: 5px;
+    border-style: solid;
+    
+    /* Makes cursor pointer to show user can click */
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #f9d2b2;
-    border-color: #333;
+#styledButton:hover {
+    /* Set colors */
     color: #333;
-}
-
-#searchButton {
-    font-size: 15px;
-    color: white;
-    padding: 5px;
-    background-color: #000;
-    border: thin solid #ababab;
-    border-radius: 5px;
-    font-weight: lighter;
-    cursor: pointer;
-}
-
-#searchButton:hover {
     background-color: #f9d2b2;
+
+    /* Set border */
     border-color: #333;
-    color: #333;
+    border-style: solid;
 }
 
-/* Removes any decoration on links (mainly for update buttons) */
+/* Removes any decoration on links (for buttons) */
 a:link { text-decoration: none; color: white; }
 a:visited { text-decoration: none; color: white; }
 a:hover { text-decoration: none; color: black; }
 a:active { text-decoration: none; color: white; }
 
-/* For search input container */
-.searchContainer {
+/* Insert & Search Container Styling */
+.outerContainer {
+    /* Make sure container is centered, set margins */
     text-align: center;
-    background-color: #03045E;
-    border: thin solid black;
-    border-radius: 5px;
-    color: white;
-    font-weight: 700;
-    margin: auto;
-    margin-bottom: 20px;
-    margin-top: 15px;
-    width: 50%;
-    padding: 10px;
-}
-
-.searchContainer input {
-    font-size: 16px;
-    padding: 3px;
-    background-color: #00B4D8;
-    border: thin solid black;
-    border-radius: 3px;
+    margin: 10px;
 }
 
 .addContainer {
-    text-align: center;
-    background-color: #03045E;
-    border: thin solid black;
-    border-radius: 5px;
-    color: white;
-    font-weight: 700;
+    /* Position centrally, add padding/margins */
+    display: inline-block;
     margin: auto;
     margin-bottom: 20px;
     margin-top: 15px;
-    min-width: 200px;
-    max-width: 800px;
     padding: 10px;
+
+    /* Add color, curve edges */
+    background-color: #009879;
+    border-radius: 4px;
+    
+    /* Font styling */
+    color: white;
+    font-weight: 700;
 }
 
 .addContainer input {
+    /* Add space between each input value */
     margin: 5px 10px 5px 0;
     padding: 3px;
-    background-color: #00B4D8;
+    
+    /* Add border and curved edge */
     border: thin solid black;
     border-radius: 3px;
 }
 
-.addContainerTitle {
-    font-size: 14px;
+.addContainer h3 {
+    /* Center and style container title */
+    font-size: 18px;
     color: white;
     margin: auto;
     text-align: center;
 }
 
 .form-inline {
+    /* Center form items and wrap */
     display: flex;
     flex-flow: row wrap;
     align-items: center;
 }
 
-.form-inline label {
-    margin: 5px 10px 5px 0;
-}
+/* Add spacing for input labels */
+.form-inline label { margin: 5px 10px 5px 0; }
+
+/* Make input smaller for number inputs */
+.numberInput { width: 40px; }
